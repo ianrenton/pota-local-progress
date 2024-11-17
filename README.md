@@ -1,5 +1,7 @@
 # POTA Local Parks Progress
 
+### Note: this software is not yet complete. Listing the closest X parks works, but I am unable to get a full list of parks activated by callsign as it requires authentication via an API that doesn't exist. I will finish developing this when the functionality is available.
+
 POTA Local Parks Progress is a simple Python script that queries the Parks on the Air API to find your closest parks,
 prints them in a list starting from the closest, and includes the status of whether you have activated them yet or not.
 
