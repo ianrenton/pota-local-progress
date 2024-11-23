@@ -1,11 +1,12 @@
 # POTA Local Parks Progress
 
-### Note: this software is not yet complete. Listing the closest X parks works, but I am unable to get a full list of parks activated by callsign as it requires authentication via an API that doesn't exist. I will finish developing this when the functionality is available.
-
 POTA Local Parks Progress is a simple Python script that queries the Parks on the Air API to find your closest parks,
 prints them in a list starting from the closest, and includes the status of whether you have activated them yet or not.
+The output looks like this:
 
-![Screenshot showing the output](docs/output.png)
+<p align="center">
+  <img src="docs/output.png" alt="Screenshot showing the output" />
+</p>
 
 ## What?
 
@@ -26,21 +27,7 @@ haven't activated yet, etc.
 Usage with `venv` and `pip` on Linux is recommended, but it will work fine wherever you use Python and however you like
 to manage it.
 
-A complete example for Debian & derivatives such as Ubuntu is included below. On the line where the script runs:
-
-```bash
-python3 pota-local-progress.py <num_parks> <callsign> <lat> <lon>
-```
-
-You will need to set the four command-line arguments appropriately for your query. `numparks` tells the script to
-consider this number of parks closest to you. `lat` and `lon` are in decimal degrees, positive East and South, for your
-home location. So I might for example run:
-
-```bash
-python3 pota-local-progress.py 20 M0TRT 50.71407 -1.87479
-```
-
-Here's the complete example:
+A complete example for Debian & derivatives such as Ubuntu is shown below:
 
 ```bash
 sudo apt install python3 python3-pip python3-venv
@@ -53,11 +40,24 @@ python3 pota-local-progress.py <num_parks> <callsign> <lat> <lon>
 deactivate
 ```
 
-## Warning
+On the line where the script runs:
 
-Always do your own research to find out if it is possible and legal to activate a park, regardless of whether it appears
-within this software or on the POTA website, and abide by the POTA rules.
+```bash
+python3 pota-local-progress.py <num_parks> <callsign> <lat> <lon>
+```
 
-This software makes a number of queries to the "public but unofficial" POTA API. It caches the result for one day, to
-avoid overloading the servers with repeated requests. Please do not abuse the API by hammering it with an undue number
-of requests.
+You will need to set the four command-line arguments appropriately for your query. `num_parks` tells the script to
+consider this number of parks closest to you. `lat` and `lon` are in decimal degrees, positive East and South, for your
+home location. So I might for example run:
+
+```bash
+python3 pota-local-progress.py 20 M0TRT 50.71407 -1.87479
+```
+
+> [!WARNING]
+> Always do your own research to find out if it is possible and legal to activate a park, regardless of whether it appears
+> within this software or on the POTA website, and abide by the POTA rules.
+>
+> This software makes a number of queries to the "public but unofficial" POTA API. It caches the result for one day, to
+> avoid overloading the servers with repeated requests. Please do not abuse the API by hammering it with an undue number
+> of requests.
