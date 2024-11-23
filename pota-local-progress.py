@@ -8,16 +8,21 @@
 from requests_cache import CachedSession
 from datetime import timedelta
 import great_circle_calculator.great_circle_calculator as gcc
+import maidenhead as mh
 import sys
 
 # Parse command-line arguments
-if len(sys.argv) != 5:
-    print("The script must be run with exactly 4 command-line arguments. See README for details.")
+if not 4 <= len(sys.argv) <= 5:
+    print("The script must be run with exactly 3 or 4 command-line arguments. See README for details.")
+    sys.exit()
 
 num_parks = int(sys.argv[1])
 callsign = sys.argv[2]
-lat = float(sys.argv[3])
-lon = float(sys.argv[4])
+if len(sys.argv) == 5:
+    lat = float(sys.argv[3])
+    lon = float(sys.argv[4])
+else:
+    lat, lon = mh.to_location(sys.argv[3])
 
 # Fetch list of parks within +-1 degree lat/lon of your location.
 session = CachedSession("pota-local-progress-cache", expire_after=timedelta(days=1))
