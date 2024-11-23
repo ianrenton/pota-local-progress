@@ -32,7 +32,7 @@ A complete example for Debian & derivatives such as Ubuntu is shown below:
 ```bash
 sudo apt install python3 python3-pip python3-venv
 git clone https://github.com/ianrenton/pota-local-progress.git
-cd newparks
+cd pota-local-progress
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
