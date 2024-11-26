@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pota-local-progress"
+description = "POTA Local Parks Progress is a simple Python script that queries the Parks on the Air API to find your closest parks, prints them in a list starting from the closest, and includes the status of whether you have activated them yet or not."
+readme = "README.md"
+license = { file = "LICENSE" }
+authors = [
+  { name = "Ian Renton", email = "ian@ianrenton.com" },
+]
+maintainers = [
+  { name = "Ian Renton", email = "ian@ianrenton.com" },
+]
+requires-python = ">=3.9"
+dynamic = ["version"]
+
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+  "requests-cache~=1.2.1",
+  "great_circle_calculator~=1.3.1",
+  "maidenhead~=1.7.0"
+]
+
+[project.scripts]
+pota-local-progress = "pota_local_progress:main"
+
+[project.urls]
+Homepage = "https://github.com/ianrenton/pota-local-progress"
+Documentation = "https://github.com/ianrenton/pota-local-progress"
+"Bug Tracker" = "https://github.com/ianrenton/pota-local-progress/issues"
+
+[tool.black]
+line-length = 88
+
+[tool.isort]
+profile = 'black'
