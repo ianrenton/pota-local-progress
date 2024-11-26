@@ -36,20 +36,20 @@ cd pota-local-progress
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
-python3 pota-local-progress.py <num_parks> <callsign> [ <lat> <lon> | <grid> ]
+python3 pota_local_progress.py <num_parks> <callsign> [ <lat> <lon> | <grid> ]
 deactivate
 ```
 
 On the line where the script runs:
 
 ```bash
-python3 pota-local-progress.py <num_parks> <callsign> <lat> <lon>
+python3 pota_local_progress.py <num_parks> <callsign> <lat> <lon>
 ```
 
 or:
 
 ```bash
-python3 pota-local-progress.py <num_parks> <callsign> <grid>
+python3 pota_local_progress.py <num_parks> <callsign> <grid>
 ```
 
 You will need to set the three/four command-line arguments appropriately for your query. `num_parks` tells the script to
@@ -57,13 +57,13 @@ consider this number of parks closest to you. `lat` and `lon` are in decimal deg
 home location. Alternativitly, `<grid>` is your Maidenhead Grid location. So I might for example run:
 
 ```bash
-python3 pota-local-progress.py 20 M0TRT 50.71407 -1.87479
+python3 pota_local_progress.py 20 M0TRT 50.71407 -1.87479
 ```
 
 or:
 
 ```bash
-python3 pota-local-progress.py 20 M0TRT IO90br
+python3 pota_local_progress.py 20 M0TRT IO90br
 ```
 
 > [!WARNING]
