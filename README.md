@@ -57,7 +57,9 @@ pota-local-progress <num_parks> <callsign> [ <lat> <lon> | <grid> ]
 deactivate
 ```
 
-On the line where the script runs:
+### General Execution
+
+To run the script:
 
 ```bash
 pota-local-progress <num_parks> <callsign> <lat> <lon>
