@@ -5,11 +5,13 @@
 # See the README.md file for more details.
 # This is Public Domain software, see the LICENCE file
 
-from requests_cache import CachedSession
+import sys
 from datetime import timedelta
+
 import great_circle_calculator.great_circle_calculator as gcc
 import maidenhead as mh
-import sys
+from requests_cache import CachedSession
+
 
 def main():
     # Parse command-line arguments

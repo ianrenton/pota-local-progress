@@ -13,12 +13,13 @@ authors = [
 maintainers = [
   { name = "Ian Renton", email = "ian@ianrenton.com" },
 ]
-requires-python = ">=3.9"
+requires-python = ">=3.8"
 dynamic = ["version"]
 
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Programming Language :: Python :: 3 :: Only",
+  "Programming Language :: Python :: 3.8",
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
@@ -38,9 +39,6 @@ pota-local-progress = "pota_local_progress:main"
 Homepage = "https://github.com/ianrenton/pota-local-progress"
 Documentation = "https://github.com/ianrenton/pota-local-progress"
 "Bug Tracker" = "https://github.com/ianrenton/pota-local-progress/issues"
-
-[tool.black]
-line-length = 88
 
 [tool.isort]
 profile = 'black'
