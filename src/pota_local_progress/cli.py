@@ -16,7 +16,7 @@ from requests_cache import CachedSession
 def main():
     # Parse command-line arguments
     if not 4 <= len(sys.argv) <= 5:
-        print("The script must be run with exactly 3 or 4 command-line arguments. See README for details.")
+        print("The script must be run with exactly 3 or 4 command-line arguments: <num_parks> <callsign> [ <lat> <lon> | <grid> ]")
         sys.exit()
 
     num_parks = int(sys.argv[1])

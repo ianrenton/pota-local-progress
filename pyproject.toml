@@ -33,12 +33,15 @@ dependencies = [
 ]
 
 [project.scripts]
-pota-local-progress = "pota_local_progress:main"
+pota-local-progress = "pota_local_progress.cli:main"
 
 [project.urls]
 Homepage = "https://github.com/ianrenton/pota-local-progress"
 Documentation = "https://github.com/ianrenton/pota-local-progress"
 "Bug Tracker" = "https://github.com/ianrenton/pota-local-progress/issues"
+
+[tool.setuptools.dynamic]
+version = {attr = "pota_local_progress.__version__"}
 
 [tool.isort]
 profile = 'black'
