@@ -24,11 +24,13 @@ haven't activated yet, etc.
 
 ## Usage
 
-There are multiple ways to install Python scripts but it will work fine wherever you use Python and however you like to manage it. See the pipx and virtual environment examples below as two examples.
+There are multiple ways to install Python scripts, but it will work fine wherever you use Python and however you like to
+manage it. See the pipx and virtual environment examples below for two examples.
 
 ### pipx
 
-`pipx` is a tool to help you install and run end-user applications written in Python. It creates an isolated environment for each application and its associated packages and makes the apps available in your shell.
+`pipx` is a tool to help you install and run end-user applications written in Python. It creates an isolated environment
+for each application and its associated packages and makes the apps available in your shell.
 
 A complete example for Debian & derivatives such as Ubuntu is shown below:
 
@@ -37,12 +39,15 @@ sudo apt install python3 python3-pip python3-venv pipx
 git clone https://github.com/ianrenton/pota-local-progress.git
 cd pota-local-progress
 pipx install .
-pota-local-progress <num_parks> <callsign> [ <lat> <lon> | <grid> ]
+pota-local-progress <num_parks> <callsign> [ <grid> | <lat> <lon> ]
 ```
+
+If `pipx install` warns you about your path and running `pipx ensurepath`, do that before running the application.
 
 ### Virtual Environment
 
-Using `venv` and `pip` is a well accepted pattern and should be used over system installs.
+If you don't want to use `pipx`, using `venv` and `pip` is a well accepted alternative, and should be used in preference
+to installing packages system-wide.
 
 A complete example for Debian & derivatives such as Ubuntu is shown below:
 
@@ -53,7 +58,7 @@ cd pota-local-progress
 python3 -m venv .venv
 source .venv/bin/activate
 pip install .
-pota-local-progress <num_parks> <callsign> [ <lat> <lon> | <grid> ]
+pota-local-progress <num_parks> <callsign> [ <grid> | <lat> <lon> ]
 deactivate
 ```
 
@@ -62,27 +67,32 @@ deactivate
 To run the script:
 
 ```bash
-pota-local-progress <num_parks> <callsign> <lat> <lon>
-```
-
-or:
-
-```bash
 pota-local-progress <num_parks> <callsign> <grid>
 ```
 
-You will need to set the three/four command-line arguments appropriately for your query. `num_parks` tells the script to
-consider this number of parks closest to you. `lat` and `lon` are in decimal degrees, positive East and South, for your
-home location. Alternatively, `<grid>` is your Maidenhead Grid location. So I might for example run:
+or:
 
 ```bash
-pota-local-progress 20 M0TRT 50.71407 -1.87479
+pota-local-progress <num_parks> <callsign> <lat> <lon>
+```
+
+You will need to set the three or four command-line arguments appropriately for your query, as follows:
+
+* `num_parks` tells the script to consider this number of parks closest to you.
+* `callsign` is your amateur radio callsign, with which the script will look up your stats using the POTA API.
+* `<grid>` is your Maidenhead Grid location
+* Alternatively, you can supply a more accurate `lat` and `lon` in decimal degrees.
+
+So I might for example run:
+
+```bash
+pota-local-progress 10 M0TRT IO90br
 ```
 
 or:
 
 ```bash
-pota-local-progress 20 M0TRT IO90br
+pota-local-progress 20 M0TRT 50.71407 -1.87479
 ```
 
 > [!WARNING]
