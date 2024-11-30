@@ -80,7 +80,7 @@ You will need to set the three or four command-line arguments appropriately for 
 
 * `num_parks` tells the script to consider this number of parks closest to you.
 * `callsign` is your amateur radio callsign, with which the script will look up your stats using the POTA API.
-* `<grid>` is your Maidenhead Grid location
+* `grid` is your Maidenhead Grid location
 * Alternatively, you can supply a more accurate `lat` and `lon` in decimal degrees.
 
 So I might for example run:
