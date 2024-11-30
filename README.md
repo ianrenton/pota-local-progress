@@ -24,8 +24,25 @@ haven't activated yet, etc.
 
 ## Usage
 
-Usage with `venv` and `pip` on Linux is recommended, but it will work fine wherever you use Python and however you like
-to manage it.
+There are multiple ways to install Python scripts but it will work fine wherever you use Python and however you like to manage it. See the pipx and virtual environment examples below as two examples.
+
+### pipx
+
+`pipx` is a tool to help you install and run end-user applications written in Python. It creates an isolated environment for each application and its associated packages and makes the apps available in your shell.
+
+A complete example for Debian & derivatives such as Ubuntu is shown below:
+
+```bash
+sudo apt install python3 python3-pip python3-venv pipx
+git clone https://github.com/ianrenton/pota-local-progress.git
+cd pota-local-progress
+pipx install .
+pota-local-progress <num_parks> <callsign> [ <lat> <lon> | <grid> ]
+```
+
+### Virtual Environment
+
+Using `venv` and `pip` is a well accepted pattern and should be used over system installs.
 
 A complete example for Debian & derivatives such as Ubuntu is shown below:
 
@@ -35,35 +52,37 @@ git clone https://github.com/ianrenton/pota-local-progress.git
 cd pota-local-progress
 python3 -m venv .venv
 source .venv/bin/activate
-pip install -r requirements.txt
-python3 pota-local-progress.py <num_parks> <callsign> [ <lat> <lon> | <grid> ]
+pip install .
+pota-local-progress <num_parks> <callsign> [ <lat> <lon> | <grid> ]
 deactivate
 ```
 
-On the line where the script runs:
+### General Execution
+
+To run the script:
 
 ```bash
-python3 pota-local-progress.py <num_parks> <callsign> <lat> <lon>
+pota-local-progress <num_parks> <callsign> <lat> <lon>
 ```
 
 or:
 
 ```bash
-python3 pota-local-progress.py <num_parks> <callsign> <grid>
+pota-local-progress <num_parks> <callsign> <grid>
 ```
 
 You will need to set the three/four command-line arguments appropriately for your query. `num_parks` tells the script to
 consider this number of parks closest to you. `lat` and `lon` are in decimal degrees, positive East and South, for your
-home location. Alternativitly, `<grid>` is your Maidenhead Grid location. So I might for example run:
+home location. Alternatively, `<grid>` is your Maidenhead Grid location. So I might for example run:
 
 ```bash
-python3 pota-local-progress.py 20 M0TRT 50.71407 -1.87479
+pota-local-progress 20 M0TRT 50.71407 -1.87479
 ```
 
 or:
 
 ```bash
-python3 pota-local-progress.py 20 M0TRT IO90br
+pota-local-progress 20 M0TRT IO90br
 ```
 
 > [!WARNING]
