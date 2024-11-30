@@ -21,11 +21,15 @@ def main():
 
     num_parks = int(sys.argv[1])
     callsign = sys.argv[2]
+    location_string = ""
     if len(sys.argv) == 5:
         lat = float(sys.argv[3])
         lon = float(sys.argv[4])
+        location_string = str(lat) + ", " + str(lon)
     else:
-        lat, lon = mh.to_location(sys.argv[3])
+        grid = sys.argv[3]
+        location_string = grid
+        lat, lon = mh.to_location(grid)
 
     # Fetch list of parks within +-1 degree lat/lon of your location.
     session = CachedSession("pota-local-progress-cache", expire_after=timedelta(days=1))
@@ -69,7 +73,7 @@ def main():
                 break
 
     # Write output
-    print("The closest " + str(num_parks) + " parks to " + callsign + " QTH at " + str(lat) + ", " + str(lon) + " are:")
+    print("The closest " + str(num_parks) + " parks to " + callsign + " QTH at " + location_string + " are:")
     print("  Status  | Distance | Reference | Name")
     print("----------|----------|-----------|----------------------------------------------")
     for park in parks:
